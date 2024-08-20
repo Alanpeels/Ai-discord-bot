@@ -4,6 +4,14 @@ import os
 from discord import message
 from openai import OpenAI
 import test  
+from dotenv import load_dotenv
+
+
+load_dotenv()
+
+
+DISCORD_TOKEN = os.getenv('DISCORD_TOKEN')
+
 
 intents = Intents.default()
 intents.message_content = True
@@ -38,4 +46,4 @@ async def on_message(message):
             await message.channel.send(response)
 
 
-client.run(os.environ['discord'])
+client.run(DISCORD_TOKEN)
