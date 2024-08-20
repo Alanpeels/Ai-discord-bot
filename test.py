@@ -1,12 +1,19 @@
 from openai import OpenAI
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+AI_KEY = os.getenv('AI_KEY')
+
+
 
 
 def generate_response(user_message):
     aiclient = OpenAI(
         base_url="https://integrate.api.nvidia.com/v1",
         api_key=
-        os.environ['aikey']
+        AI_KEY
     )
 
     try:
